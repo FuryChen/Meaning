@@ -7,3 +7,12 @@ C:\Users\DELL\Pictures\Meaning\KeyMouseControl\obj\Debug\netcoreapp3.1\KeyMouseC
 C:\Users\DELL\Pictures\Meaning\KeyMouseControl\obj\Debug\netcoreapp3.1\KeyMouseControl.csproj.CoreCompileInputs.cache
 C:\Users\DELL\Pictures\Meaning\KeyMouseControl\obj\Debug\netcoreapp3.1\KeyMouseControl.dll
 C:\Users\DELL\Pictures\Meaning\KeyMouseControl\obj\Debug\netcoreapp3.1\KeyMouseControl.pdb
+D:\Meaning\KeyMouseControl\bin\Debug\netcoreapp3.1\KeyMouseControl.deps.json
+D:\Meaning\KeyMouseControl\bin\Debug\netcoreapp3.1\KeyMouseControl.dll
+D:\Meaning\KeyMouseControl\bin\Debug\netcoreapp3.1\KeyMouseControl.pdb
+D:\Meaning\KeyMouseControl\obj\Debug\netcoreapp3.1\KeyMouseControl.csprojAssemblyReference.cache
+D:\Meaning\KeyMouseControl\obj\Debug\netcoreapp3.1\KeyMouseControl.AssemblyInfoInputs.cache
+D:\Meaning\KeyMouseControl\obj\Debug\netcoreapp3.1\KeyMouseControl.AssemblyInfo.cs
+D:\Meaning\KeyMouseControl\obj\Debug\netcoreapp3.1\KeyMouseControl.csproj.CoreCompileInputs.cache
+D:\Meaning\KeyMouseControl\obj\Debug\netcoreapp3.1\KeyMouseControl.dll
+D:\Meaning\KeyMouseControl\obj\Debug\netcoreapp3.1\KeyMouseControl.pdb

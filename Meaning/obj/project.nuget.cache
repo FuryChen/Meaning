@@ -1,12 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "/kXcCauIfpcQelOlxUS0kW0olEX2acBD+h0dUufNoOJb5OJMvk446n9B6ptDmBZBnrq0sWnrjk5mKUOx3vLMpw==",
+  "dgSpecHash": "Gvs9ABgkdl65uFM8DyDWdE1DW6MSHA8g3Ik5CBytKXtCepW+Ii/hnYRmZdBQd5JxXdWDu6jALEHwn1QekVDiJw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DELL\\Pictures\\Meaning\\Meaning\\Meaning.csproj",
+  "projectFilePath": "D:\\Meaning\\Meaning\\Meaning.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\DELL\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
-    "C:\\Users\\DELL\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
-    "C:\\Users\\DELL\\.nuget\\packages\\system.drawing.common\\5.0.2\\system.drawing.common.5.0.2.nupkg.sha512"
+    "C:\\Users\\CHB\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "C:\\Users\\CHB\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
+    "C:\\Users\\CHB\\.nuget\\packages\\opencvsharp4\\4.5.3.20210725\\opencvsharp4.4.5.3.20210725.nupkg.sha512",
+    "C:\\Users\\CHB\\.nuget\\packages\\opencvsharp4.runtime.win\\4.5.3.20210725\\opencvsharp4.runtime.win.4.5.3.20210725.nupkg.sha512",
+    "C:\\Users\\CHB\\.nuget\\packages\\system.drawing.common\\5.0.2\\system.drawing.common.5.0.2.nupkg.sha512",
+    "C:\\Users\\CHB\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
+    "C:\\Users\\CHB\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

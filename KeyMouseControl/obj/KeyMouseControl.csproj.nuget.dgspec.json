@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DELL\\Pictures\\Meaning\\KeyMouseControl\\KeyMouseControl.csproj": {}
+    "D:\\Meaning\\KeyMouseControl\\KeyMouseControl.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DELL\\Pictures\\Meaning\\KeyMouseControl\\KeyMouseControl.csproj": {
+    "D:\\Meaning\\KeyMouseControl\\KeyMouseControl.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DELL\\Pictures\\Meaning\\KeyMouseControl\\KeyMouseControl.csproj",
+        "projectUniqueName": "D:\\Meaning\\KeyMouseControl\\KeyMouseControl.csproj",
         "projectName": "KeyMouseControl",
-        "projectPath": "C:\\Users\\DELL\\Pictures\\Meaning\\KeyMouseControl\\KeyMouseControl.csproj",
-        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DELL\\Pictures\\Meaning\\KeyMouseControl\\obj\\",
+        "projectPath": "D:\\Meaning\\KeyMouseControl\\KeyMouseControl.csproj",
+        "packagesPath": "C:\\Users\\CHB\\.nuget\\packages\\",
+        "outputPath": "D:\\Meaning\\KeyMouseControl\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\CHB\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +29,6 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -38,7 +40,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "System.Drawing.Common": {
               "target": "Package",
@@ -60,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

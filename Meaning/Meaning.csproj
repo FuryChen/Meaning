@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CVLibrary\CVLibrary.csproj" />
     <ProjectReference Include="..\KeyMouseControl\KeyMouseControl.csproj" />
   </ItemGroup>
 

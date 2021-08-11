@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Uik9R9gHRDkzydEdKsO0JK2kluNyuVBLxic9og4ITuevNjMll+OujDq3po16h0sU/lVO/zwLgjmWXAW3xU+qpA==",
+  "dgSpecHash": "ndeLMLch+Ulnf7DqH7aizc1su+m3PF6xMa7yLWqX/tQVrD0/pbwMYZprtkVVEdnlkUdHdW4mD1UvwXDrrmCChg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DELL\\Pictures\\Meaning\\KeyMouseControl\\KeyMouseControl.csproj",
+  "projectFilePath": "D:\\Meaning\\KeyMouseControl\\KeyMouseControl.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\DELL\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
-    "C:\\Users\\DELL\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
-    "C:\\Users\\DELL\\.nuget\\packages\\system.drawing.common\\5.0.2\\system.drawing.common.5.0.2.nupkg.sha512"
+    "C:\\Users\\CHB\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "C:\\Users\\CHB\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
+    "C:\\Users\\CHB\\.nuget\\packages\\system.drawing.common\\5.0.2\\system.drawing.common.5.0.2.nupkg.sha512"
   ],
   "logs": []
 }

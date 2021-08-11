@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meaning", "Meaning\Meaning.csproj", "{BA019D0B-96B9-47E6-924C-35611B592C98}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Meaning", "Meaning\Meaning.csproj", "{BA019D0B-96B9-47E6-924C-35611B592C98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyMouseControl", "KeyMouseControl\KeyMouseControl.csproj", "{4CFE1324-83B1-46BB-A2BC-BE918E3C206C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeyMouseControl", "KeyMouseControl\KeyMouseControl.csproj", "{4CFE1324-83B1-46BB-A2BC-BE918E3C206C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CVLibrary", "CVLibrary\CVLibrary.csproj", "{F4BDBA96-A694-425A-996B-8F4CE40E4D29}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{4CFE1324-83B1-46BB-A2BC-BE918E3C206C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CFE1324-83B1-46BB-A2BC-BE918E3C206C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CFE1324-83B1-46BB-A2BC-BE918E3C206C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4BDBA96-A694-425A-996B-8F4CE40E4D29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4BDBA96-A694-425A-996B-8F4CE40E4D29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4BDBA96-A694-425A-996B-8F4CE40E4D29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4BDBA96-A694-425A-996B-8F4CE40E4D29}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
