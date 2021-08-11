@@ -12,7 +12,7 @@ namespace KeyMouseControl
 
         public static Image CaptureScreen()
         {
-            Size s = new Size(100, 100);
+            Size s = new Size(500, 500);
             Bitmap memoryImage = new Bitmap(s.Width, s.Height, PixelFormat.Format32bppArgb);
             Graphics memoryGraphics = Graphics.FromImage(memoryImage);
             memoryGraphics.CopyFromScreen(0, 0, 0, 0, s);

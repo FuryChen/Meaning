@@ -1,12 +1,74 @@
 ﻿using OpenCvSharp;
 using System;
+using System.Drawing;
 using System.IO;
 using System.Threading;
+using Point = OpenCvSharp.Point;
 
 namespace CVLibrary
 {
-    public class ImageOpreation
+    public class OpenCV
     {
+        public static OpenCV SelfOpenCV;
+        public static OpenCV GetInstance()
+        {
+            if (SelfOpenCV == null)
+            {
+                SelfOpenCV = new OpenCV();
+            }
+            return SelfOpenCV;
+        }
+
+
+        public Mat mat { get; set; }
+        public Window wnd { get; set; }
+        public OpenCV()
+        {
+            mat = new Mat();
+            wnd = new Window("TheOne");
+        }
+
+
+        public void Load(Image img)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                img.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+                img.Dispose();
+                mat = Mat.FromImageData(ms.ToArray(), ImreadModes.AnyColor);
+                Show();
+            }
+        }
+        private void Show()
+        {
+            try
+            {
+                wnd.ShowImage(mat);
+                Cv2.WaitKey(1);
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+
+
+
+
+
+        public object TemplateMatching(Image img)
+        {
+            //从mat里找temp，返回它的位置
+            Show();
+            return 0;
+        }
+
+
+
+
+
+
+        #region MyRegion
         public static void Load(string file)
         {
             Mat mat = new Mat(file);
@@ -29,14 +91,14 @@ namespace CVLibrary
             mat.SaveImage(@"C:\Users\CHB\Desktop\456.jpeg");
 
 
+
             Cv2.ImShow("Demo", mat);
-            
             Cv2.WaitKey(0);
 
 
         }
 
-        public static void Do ()
+        public static void Do()
         {
             #region 
             //自定义一张全红色的图片
@@ -57,5 +119,6 @@ namespace CVLibrary
             }
             #endregion
         }
+        #endregion
     }
 }
