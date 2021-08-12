@@ -28,14 +28,15 @@ namespace CVLibrary
 
 
 
-        public void Load(Image img)
+        public void Load(Image img,bool show = true)
         {
             using (MemoryStream ms = new MemoryStream())
             {
                 img.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
                 img.Dispose();
                 mat = Mat.FromImageData(ms.ToArray(), ImreadModes.AnyColor);
-                Show();
+                if(show)
+                    Show();
             }
         }
 
@@ -44,7 +45,6 @@ namespace CVLibrary
         {
             try
             {
-                Resize(1000);
                 wnd.ShowImage(mat);
                 Cv2.WaitKey(1);
             }
@@ -53,26 +53,10 @@ namespace CVLibrary
             }
         }
 
-        public void Resize(double zoom)
-        {
-            Mat result = new Mat();
-            Cv2.Resize(mat, result, new OpenCvSharp.Size(), zoom, zoom);
-            mat = result;
-        }
-
-        public void Resize(int MaxWidth)
-        {
-            if (mat.Width > MaxWidth)
-            {
-                Resize((double)MaxWidth / mat.Width);   
-            }
-        }
-
-
 
         public RegionSquare TemplateMatching(Image src, string temp)
         {
-            Load(src);
+            Load(src, false);
             Mat matTemplate = Cv2.ImRead(temp, ImreadModes.AnyColor);
             Mat matResult = new Mat();
 
@@ -94,8 +78,9 @@ namespace CVLibrary
             Cv2.Rectangle(mat, minLocation, new Point(minLocation.X + matTemplate.Cols, minLocation.Y + matTemplate.Rows), Scalar.Red, 2);
 
 
-            Show();
-            return new RegionSquare();
+            //Show();
+            return new RegionSquare(minLocation.X, minLocation.Y, 0, 0);
         }
+
     }
 }

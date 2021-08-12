@@ -14,6 +14,7 @@ namespace Meaning
         static void Main(string[] args)
         {
             Console.WriteLine("程序已启动.............");
+            Console.WriteLine(Thread.CurrentThread.ManagedThreadId);
             string cmd;
             while (flagMain)
             {
@@ -22,9 +23,11 @@ namespace Meaning
                 {
                     case "show":        StartOpenCVShow();      break;
                     case "match":       StartOpenCVMatch();     break;
+                    case "start":       startWait?.Invoke();    break;
                     case "stop":        Stop();                 break;
 
                     case "ps":          PrintScreen();          break;
+                    case "findwnd":     FindWnd();               break;
 
                     case "exit":
                         flagMain = false;
@@ -35,6 +38,7 @@ namespace Meaning
                 }
             }
         }
+
 
 
         private static bool flagRun = false;
@@ -52,6 +56,7 @@ namespace Meaning
             thread.Start();
             Console.WriteLine("OpenCV显示打开");
         }
+
 
         private static void StartOpenCVMatch()
         {
@@ -72,10 +77,29 @@ namespace Meaning
 
         private static void Stop()
         {
+            stopWait?.Invoke();
             flagRun = false;
             Console.WriteLine("关闭");
         }
 
+
+
+
+
+        public static Action startWait { get; set; }
+        public static Action stopWait { get; set; }
+
+        private static void FindWnd()
+        {
+            Thread thread = new Thread(() => {
+                VirusKiller VK = new VirusKiller();
+                startWait += VK.Wait;
+                stopWait += VK.StopWait;
+                VK.FindMainWindow();
+                VK.Wait();
+            });
+            thread.Start();
+        }
 
         private static void PrintScreen()
         {

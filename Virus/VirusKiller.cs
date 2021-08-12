@@ -16,7 +16,6 @@ namespace Virus
         public VirusKiller()
         {
             Engine = new OpenCV();
-            FindMainWindow();
         }
 
 
