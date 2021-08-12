@@ -1,72 +1,44 @@
 ﻿using CVLibrary;
 using KeyMouseControl;
+using MetaData;
 using System;
 using System.Drawing;
 using System.Threading;
 
 namespace Virus
 {
-    public class Search
+    public partial class VirusKiller
     {
-        public void FindMainWindow(Image img)
+        public RegionSquare GameWnd { get; set; } = new RegionSquare();
+        public OpenCV Engine { get; set; }
+
+
+        public VirusKiller()
         {
-            OpenCV.GetInstance().Load(Screen.CaptureScreen());
-            var location = OpenCV.GetInstance().TemplateMatching(null);
-            if (location == null)
-            {
-                //报错
-            }
-            else
-            {
-                //赋值
-            }
+            Engine = new OpenCV();
+            FindMainWindow();
         }
-    }
 
 
-    public class Operation
-    {
         private bool FlagAllTime;
         public void StartGameAllTime()
         {
             //开启连续路径规划
-            Thread Thread = new Thread(()=> {
-                while (FlagAllTime)
-                {
-                    SelectLevel(210);
-                    StartGameOneTime();
-                }
-            });
+            Thread Thread = new Thread(AllTimeRun);
             FlagAllTime = true;
             Thread.Start();
         }
-
-
-        public void StopImmediately()
+        private void AllTimeRun(object obj)
         {
-            FlagAllTime = false;
-            FlagOneTime = false;
-        }
-
-        public void StopSoon()
-        {
-            FlagAllTime = false;
+            FindMainWindow();
+            while (FlagAllTime)
+            {
+                SelectLevel(210);
+                StartGameOneTime();
+            }
         }
 
 
-
-
-
-
-
-
-
-
-        public void SelectLevel(int level)
-        {
-            //展开关卡列表
-            //点击左侧210关卡
-        }
 
 
         private bool FlagOneTime;
@@ -77,10 +49,10 @@ namespace Virus
             FlagOneTime = true;
             Thread.Start();
         }
-
         private bool xx;
         private void OneTimeRun(object obj)
         {
+            FindMainWindow();
             while (FlagOneTime)
             {
                 //查看游戏是否提前结束
@@ -101,5 +73,24 @@ namespace Virus
                 //执行路径
             }
         }
+
+
+
+
+
+        public void StopImmediately()
+        {
+            FlagAllTime = false;
+            FlagOneTime = false;
+        }
+
+
+
+        public void StopSoon()
+        {
+            FlagAllTime = false;
+        }
     }
+
+
 }

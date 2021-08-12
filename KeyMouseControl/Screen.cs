@@ -4,22 +4,32 @@ using System.Drawing;
 using System.Drawing.Printing;
 using System.Drawing.Imaging;
 using System.Text;
+using MetaData;
 
 namespace KeyMouseControl
 {
     public class Screen
     {
+        public static RegionSquare RegionDefault { get; set; }
 
-        public static Image CaptureScreen()
+        public static void SetDefaultRegion(RegionSquare region)
         {
-            Size s = new Size(500, 500);
-            Bitmap memoryImage = new Bitmap(s.Width, s.Height, PixelFormat.Format32bppArgb);
-            Graphics memoryGraphics = Graphics.FromImage(memoryImage);
-            memoryGraphics.CopyFromScreen(0, 0, 0, 0, s);
+            RegionDefault = region;
+        }
 
-            return memoryImage;
+        public static Image CaptureScreen(RegionSquare region = null)
+        {
+            if (region == null)
+                region = RegionDefault;
+            if (region == null)
+                region = new RegionSquare(0,0, 1920,1080);
 
-            //memoryImage.Save(@"C:\Users\DELL\Desktop\123.png", ImageFormat.Png);
+            Bitmap memoryImage = new Bitmap(region.Size.Width, region.Size.Height, PixelFormat.Format32bppArgb);
+            using (Graphics memoryGraphics = Graphics.FromImage(memoryImage))
+            {
+                memoryGraphics.CopyFromScreen(region.Point.X, region.Point.Y, 0, 0, region.Size);
+                return memoryImage;
+            }
         }
     }
 }

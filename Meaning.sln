@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Meaning", "Meaning\Meaning.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KeyMouseControl", "KeyMouseControl\KeyMouseControl.csproj", "{4CFE1324-83B1-46BB-A2BC-BE918E3C206C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CVLibrary", "CVLibrary\CVLibrary.csproj", "{F4BDBA96-A694-425A-996B-8F4CE40E4D29}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CVLibrary", "CVLibrary\CVLibrary.csproj", "{F4BDBA96-A694-425A-996B-8F4CE40E4D29}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Virus", "Virus\Virus.csproj", "{64695523-1269-430B-BE45-A4F0430310A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Virus", "Virus\Virus.csproj", "{64695523-1269-430B-BE45-A4F0430310A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetaData", "MetaData\MetaData.csproj", "{F337F339-2E39-47A2-9A08-67784F6CFDEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{64695523-1269-430B-BE45-A4F0430310A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64695523-1269-430B-BE45-A4F0430310A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64695523-1269-430B-BE45-A4F0430310A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F337F339-2E39-47A2-9A08-67784F6CFDEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F337F339-2E39-47A2-9A08-67784F6CFDEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F337F339-2E39-47A2-9A08-67784F6CFDEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F337F339-2E39-47A2-9A08-67784F6CFDEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

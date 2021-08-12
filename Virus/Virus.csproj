@@ -1,8 +1,24 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="MatchFile\Home\MainWeapon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="MatchFile\Home\MainWeapon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="MatchFile\Home\MainWeapon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
@@ -11,6 +27,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CVLibrary\CVLibrary.csproj" />
     <ProjectReference Include="..\KeyMouseControl\KeyMouseControl.csproj" />
+    <ProjectReference Include="..\MetaData\MetaData.csproj" />
   </ItemGroup>
 
 </Project>

@@ -8,6 +8,8 @@
   <ItemGroup>
     <ProjectReference Include="..\CVLibrary\CVLibrary.csproj" />
     <ProjectReference Include="..\KeyMouseControl\KeyMouseControl.csproj" />
+    <ProjectReference Include="..\MetaData\MetaData.csproj" />
+    <ProjectReference Include="..\Virus\Virus.csproj" />
   </ItemGroup>
 
 </Project>
