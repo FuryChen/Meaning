@@ -1,4 +1,5 @@
-﻿using KeyMouseControl;
+﻿using CVLibrary;
+using KeyMouseControl;
 using MetaData;
 using System;
 using System.Collections.Generic;
@@ -13,18 +14,19 @@ namespace VirusKiller
     /// </summary>
     public partial class Skill
     {
-        public Image FindMainWindow(RegionSquare region)
+        //img不用ref也可以。
+        public bool FindMainWindow(ref Image img)
         {
-            Image img = Screen.CaptureScreen(region);
-            RegionSquare locationTemp = Engine.TemplateMatching(img, "MatchFile/Home/MainWeapon.png");
-            if (locationTemp == null)
+            if (!OpenCV.TemplateMatching(ref img, "MatchFile/Home/MainWeapon.png",out RegionSquare locationTemp))
             {
-                LogThrow?.Invoke("未查找到窗口界面", new EventArgs() { });
+                LogThrow?.Invoke("未查找到窗口界面.............", new EventArgs() { });
                 //报错
-                throw new Exception("未查找到窗口界面");
+                //throw new Exception("未查找到窗口界面");
+                return false;
             }
             else
             {
+                LogThrow?.Invoke("查找到窗口界面", new EventArgs() { });
                 //赋值
                 RegionSquare location = new RegionSquare()
                 {
@@ -40,9 +42,8 @@ namespace VirusKiller
                     }
                 };
                 GameWnd = location;
+                return true;
             }
-
-            return img;
         }
     }
 }

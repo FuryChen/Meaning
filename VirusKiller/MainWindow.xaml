@@ -5,20 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VirusKiller"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="844" Width="900">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*" MinWidth="80"/>
+            <ColumnDefinition Width="*" MinWidth="80"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
-        <Grid x:Name="imgGD" Grid.Row="0" Grid.Column="0" Grid.RowSpan="100">
-            
-        </Grid>
-
+        <Border Grid.Row="0" Grid.Column="0" Grid.RowSpan="100" Background="Gray">
+            <Grid x:Name="imgGD"/>
+        </Border>
+        <GridSplitter Grid.RowSpan="100" Background="Black" Width="3" ></GridSplitter>
         <Grid Grid.Row="0" Grid.Column="1">
             <Button Height="25" Width="80" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0" Click="Btn_FindWnd_Click">FindWnd</Button>
             <Button Height="25" Width="80"></Button>
@@ -29,7 +29,19 @@
             <Button Height="25" Width="80"></Button>
             <Button Height="25" Width="80"></Button>
             <Button Height="25" Width="80"></Button>
-
         </Grid>
+        
+        <TextBlock x:Name="tbLog" Grid.Row="1" Grid.Column="1" Background="Black" Foreground="White" FontSize="14">
+            asdsa
+        </TextBlock>
+
+        <ListView x:Name="lvLog" Grid.Row="1" Grid.Column="1" Background="Black">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" Foreground="White" FontSize="14"></TextBlock>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
     </Grid>
 </Window>

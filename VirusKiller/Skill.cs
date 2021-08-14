@@ -13,13 +13,9 @@ namespace VirusKiller
 
 
         public RegionSquare GameWnd { get; set; } = new RegionSquare();
-        public OpenCV Engine { get; set; }
 
 
-        public Skill()
-        {
-            Engine = new OpenCV();
-        }
+
 
 
         private bool FlagAllTime;

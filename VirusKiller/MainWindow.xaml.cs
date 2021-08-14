@@ -3,6 +3,7 @@ using KeyMouseControl;
 using MetaData;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -29,91 +30,61 @@ namespace VirusKiller
         Skill Skill = new Skill();
         static RegionSquare FullScreen = new RegionSquare(0, 0, (int)SystemParameters.FullPrimaryScreenWidth, (int)SystemParameters.FullPrimaryScreenHeight);
 
+        public ObservableCollection<string> OBCLog = new System.Collections.ObjectModel.ObservableCollection<string>() { "123","dsafas"};
         public MainWindow()
         {
             InitializeComponent();
+
+            lvLog.ItemsSource = OBCLog;
+            OpenCV.LogThrow += LogThrowHandler;
+            Skill.LogThrow += LogThrowHandler;
         }
 
 
+        private void LogThrowHandler(object sender, EventArgs e)
+        {
+            this.Dispatcher.Invoke(() => {
+                string log = $"{DateTime.Now:HH:mm:ss.fff}   {sender}";
+                OBCLog.Add(log);
+                lvLog.ScrollIntoView(log);
 
+                if (OBCLog.Count > 50)
+                    OBCLog.RemoveAt(0);
+            });
+        }
+
+        private void SetShow(System.Drawing.Image img)
+        {
+            this.Dispatcher.Invoke(() => {
+                var xxx = ImageConverter.ToImageBrush(img);
+                xxx.Stretch = Stretch.Uniform;
+                imgGD.Background = xxx;
+                img.Dispose();
+            });
+        }
+
+
+        bool FlagLoop = false;
         private void Btn_FindWnd_Click(object sender, RoutedEventArgs e)
         {
-            var img = Skill.FindMainWindow(FullScreen);
-
-            BitmapImage bitmapImage = new BitmapImage();
-
-            MemoryStream ms = new MemoryStream();
-            img.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
-
-            bitmapImage.BeginInit();
-            bitmapImage.StreamSource = ms;
-            bitmapImage.EndInit();
-
-
-            imgGD.Background = new ImageBrush(bitmapImage);
-            imgGD.Width = img.Width;
-            imgGD.Height = img.Height;
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        private static bool flagRun = false;
-        private static void StartOpenCVShow()
-        {
-            Thread thread = new Thread(() => {
-                OpenCV V = new OpenCV();
-                while (flagRun)
-                {
-                    V.Load(Screen.CaptureScreen(FullScreen));
-                    Thread.Sleep(1);
-                }
-            });
-            flagRun = true;
+            Thread thread = new Thread(FindWnd);
             thread.Start();
-            Console.WriteLine("OpenCV显示打开");
+
         }
-
-
-        private static void StartOpenCVMatch()
+        private void FindWnd(object obj)
         {
-            Thread thread = new Thread(() => {
-                OpenCV V = new OpenCV();
-                while (flagRun)
-                {
-                    V.TemplateMatching(Screen.CaptureScreen(FullScreen), "MatchFile/Home/MainWeapon.png");
-                    Thread.Sleep(1);
-                }
-            });
-            flagRun = true;
-            thread.Start();
-            Console.WriteLine("OpenCV模板匹配打开");
+            System.Drawing.Image img = Screen.CaptureScreen(FullScreen);
+            if (Skill.FindMainWindow(ref img))
+            {
+                SetShow(Screen.CaptureScreen(Skill.GameWnd));
+                FindWnd(null);
+            }
+            else
+            {
+                SetShow(img);
+                FindWnd(null);
+            }
         }
-
-
-
-
-
 
 
 
