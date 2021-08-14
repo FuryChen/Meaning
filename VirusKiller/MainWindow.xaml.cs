@@ -30,7 +30,7 @@ namespace VirusKiller
         Skill Skill = new Skill();
         static RegionSquare FullScreen = new RegionSquare(0, 0, (int)SystemParameters.FullPrimaryScreenWidth, (int)SystemParameters.FullPrimaryScreenHeight);
 
-        public ObservableCollection<string> OBCLog = new System.Collections.ObjectModel.ObservableCollection<string>() { "123","dsafas"};
+        public ObservableCollection<string> OBCLog = new System.Collections.ObjectModel.ObservableCollection<string>();
         public MainWindow()
         {
             InitializeComponent();
@@ -43,49 +43,66 @@ namespace VirusKiller
 
         private void LogThrowHandler(object sender, EventArgs e)
         {
-            this.Dispatcher.Invoke(() => {
-                string log = $"{DateTime.Now:HH:mm:ss.fff}   {sender}";
-                OBCLog.Add(log);
-                lvLog.ScrollIntoView(log);
+            try
+            {
+                this.Dispatcher.Invoke(() => {
+                    string log = $"{DateTime.Now:HH:mm:ss.fff}   {sender}";
+                    OBCLog.Add(log);
+                    lvLog.ScrollIntoView(log);
 
-                if (OBCLog.Count > 50)
-                    OBCLog.RemoveAt(0);
-            });
+                    if (OBCLog.Count > 50)
+                        OBCLog.RemoveAt(0);
+                });
+            }
+            catch (Exception)
+            {
+            }
         }
 
         private void SetShow(System.Drawing.Image img)
         {
-            this.Dispatcher.Invoke(() => {
-                var xxx = ImageConverter.ToImageBrush(img);
-                xxx.Stretch = Stretch.Uniform;
-                imgGD.Background = xxx;
-                img.Dispose();
-            });
+            try
+            {
+                this.Dispatcher.Invoke(() => {
+                    var xxx = ImageConverter.ToImageBrush(img);
+                    xxx.Stretch = Stretch.Uniform;
+                    imgGD.Background = xxx;
+                    img.Dispose();
+                });
+            }
+            catch (Exception)
+            {
+            }
         }
 
 
-        bool FlagLoop = false;
+        bool FlagStopFind = false;
         private void Btn_FindWnd_Click(object sender, RoutedEventArgs e)
         {
+            FlagStopFind = false;
             Thread thread = new Thread(FindWnd);
             thread.Start();
-
         }
         private void FindWnd(object obj)
         {
-            System.Drawing.Image img = Screen.CaptureScreen(FullScreen);
-            if (Skill.FindMainWindow(ref img))
+            while (!FlagStopFind)
             {
-                SetShow(Screen.CaptureScreen(Skill.GameWnd));
-                FindWnd(null);
-            }
-            else
-            {
-                SetShow(img);
-                FindWnd(null);
+                System.Drawing.Image img = Screen.CaptureScreen(FullScreen);
+                if (Skill.FindMainWindow(ref img))
+                {
+                    SetShow(Screen.CaptureScreen(Skill.GameWnd));
+                }
+                else
+                {
+                    SetShow(img);
+                }
             }
         }
 
+        private void Btn_StopFind_Click(object sender, RoutedEventArgs e)
+        {
+            FlagStopFind = true;
+        }
 
 
 

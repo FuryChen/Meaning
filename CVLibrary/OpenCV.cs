@@ -51,7 +51,7 @@ namespace CVLibrary
             Cv2.MatchTemplate(matSrc, matTemp, matResult, TemplateMatchModes.SqDiffNormed);
 
             //对结果进行归一化(这里我测试的时候没有发现有什么用,但在opencv的书里有这个操作，应该有什么神秘加成，这里也加上)
-           // Cv2.Normalize(matResult, matResult, 1, 0, NormTypes.MinMax, -1);
+            //Cv2.Normalize(matResult, matResult, 1, 0, NormTypes.MinMax, -1);
 
             double minValue, maxValue;
             Point minLocation, maxLocation;
@@ -59,8 +59,6 @@ namespace CVLibrary
 
 
             Cv2.Rectangle(matSrc, minLocation, new Point(minLocation.X + matTemp.Cols, minLocation.Y + matTemp.Rows), Scalar.Red, 2);
-            Cv2.PutText(matSrc, $"{minLocation}", new Point(0, 30), HersheyFonts.HersheyComplex, 1, Scalar.Red, 3);
-            Cv2.PutText(matSrc, $"{maxLocation}", new Point(0, 80), HersheyFonts.HersheyComplex, 1, Scalar.Red, 3);
 
 
             LogThrow?.Invoke(new { minValue, maxValue, minLocation, maxLocation }, null);

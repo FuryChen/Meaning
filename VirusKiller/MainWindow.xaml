@@ -21,6 +21,7 @@
         <GridSplitter Grid.RowSpan="100" Background="Black" Width="3" ></GridSplitter>
         <Grid Grid.Row="0" Grid.Column="1">
             <Button Height="25" Width="80" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0" Click="Btn_FindWnd_Click">FindWnd</Button>
+            <Button Height="25" Width="80" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,63,0,0" Click="Btn_StopFind_Click">StopFind</Button>
             <Button Height="25" Width="80"></Button>
             <Button Height="25" Width="80"></Button>
             <Button Height="25" Width="80"></Button>
@@ -28,9 +29,9 @@
             <Button Height="25" Width="80"></Button>
             <Button Height="25" Width="80"></Button>
             <Button Height="25" Width="80"></Button>
-            <Button Height="25" Width="80"></Button>
+
         </Grid>
-        
+
         <TextBlock x:Name="tbLog" Grid.Row="1" Grid.Column="1" Background="Black" Foreground="White" FontSize="14">
             asdsa
         </TextBlock>
