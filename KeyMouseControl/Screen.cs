@@ -10,17 +10,11 @@ namespace KeyMouseControl
 {
     public class Screen
     {
-        public static RegionSquare RegionDefault { get; set; } = new RegionSquare(0, 0, 1920, 1080);
 
-        public static void SetDefaultRegion(RegionSquare region = null)
-        {
-            RegionDefault = region ?? new RegionSquare(0, 0, 1920, 1080);
-        }
-
-        public static Image CaptureScreen(RegionSquare region = null)
+        public static Image CaptureScreen(RegionSquare region)
         {
             if (region == null)
-                region = RegionDefault;
+                throw new Exception("截图选取不可为空");
 
             Bitmap memoryImage = new Bitmap(region.Size.Width, region.Size.Height, PixelFormat.Format32bppArgb);
             using (Graphics memoryGraphics = Graphics.FromImage(memoryImage))

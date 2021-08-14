@@ -5,15 +5,18 @@ using System;
 using System.Drawing;
 using System.Threading;
 
-namespace Virus
+namespace VirusKiller
 {
-    public partial class VirusKiller
+    public partial class Skill
     {
+        public event EventHandler LogThrow;
+
+
         public RegionSquare GameWnd { get; set; } = new RegionSquare();
         public OpenCV Engine { get; set; }
 
 
-        public VirusKiller()
+        public Skill()
         {
             Engine = new OpenCV();
         }
@@ -29,7 +32,6 @@ namespace Virus
         }
         private void AllTimeRun(object obj)
         {
-            FindMainWindow();
             while (FlagAllTime)
             {
                 SelectLevel(210);
@@ -51,7 +53,6 @@ namespace Virus
         private bool xx;
         private void OneTimeRun(object obj)
         {
-            FindMainWindow();
             while (FlagOneTime)
             {
                 //查看游戏是否提前结束

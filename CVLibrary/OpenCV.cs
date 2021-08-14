@@ -11,18 +11,18 @@ namespace CVLibrary
     public class OpenCV : IDisposable
     {
         public Mat mat { get; set; }
-        public Window wnd { get; set; }
+        //public Window wnd { get; set; }
         public OpenCV()
         {
             mat = new Mat();
-            wnd = new Window($"{DateTime.Now:MM-dd HH:mm:ss.fff}");
+            //wnd = new Window($"{DateTime.Now:MM-dd HH:mm:ss.fff}");
         }
 
         public void Dispose()
         {
             mat.Dispose();
-            wnd.Close();
-            wnd.Dispose();
+            //wnd.Close();
+            //wnd.Dispose();
         }
 
 
@@ -33,7 +33,7 @@ namespace CVLibrary
             using (MemoryStream ms = new MemoryStream())
             {
                 img.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
-                img.Dispose();
+                //img.Dispose();
                 mat = Mat.FromImageData(ms.ToArray(), ImreadModes.AnyColor);
                 if(show)
                     Show();
@@ -45,8 +45,8 @@ namespace CVLibrary
         {
             try
             {
-                wnd.ShowImage(mat);
-                Cv2.WaitKey(1);
+                //wnd.ShowImage(mat);
+                //Cv2.WaitKey(1);
             }
             catch (Exception)
             {
@@ -78,7 +78,7 @@ namespace CVLibrary
             Cv2.Rectangle(mat, minLocation, new Point(minLocation.X + matTemplate.Cols, minLocation.Y + matTemplate.Rows), Scalar.Red, 2);
 
 
-            //Show();
+            Show();
             return new RegionSquare(minLocation.X, minLocation.Y, 0, 0);
         }
 
